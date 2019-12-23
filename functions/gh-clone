@@ -1,0 +1,40 @@
+# -*- mode: sh -*-
+
+gh-clone() {
+    local repo="$1"
+
+    if [[ -z "$GH_CLONE_WORKSPACE_DIR" ]]; then
+        echo 'Error: GH_CLONE_WORKSPACE_DIR is not set.' >&2
+        return 1
+    fi
+
+    if [[ -z "$repo" ]]; then
+        echo 'Error: Repository is not given.' >&2
+        return 1
+    fi
+
+    if [[ "$repo" != *'/'* ]]; then
+        local gh_user="${GH_CLONE_DEFAULT_GITHUB_USER:-$(git config github.user)}"
+        if [[ -z "$gh_user" ]]; then
+            echo 'Error: GitHub username is not given. You can set the default username at GH_CLONE_GITHUB_USER or github.user in .gitconfig.' >&2
+            return 1
+        fi
+
+        repo="${gh_user}/${repo}"
+    fi
+
+    local git_url="https://github.com/${repo}.git"
+
+    local dest_dir="${GH_CLONE_WORKSPACE_DIR}/${repo}"
+    if [[ -e "$dest_dir" ]]; then
+        echo 'Error: The destination directory already exists!' >&2
+        return 1
+    fi
+
+    local author_dir="$(dirname "$dest_dir")"
+    mkdir -p "$author_dir"
+
+    git clone "$git_url" "$dest_dir"
+}
+
+gh-clone "$@"
