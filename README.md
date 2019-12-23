@@ -2,6 +2,16 @@
 
 Clone a GitHub repository into your workspace with one command!
 
+## Example
+
+```
+$ GH_CLONE_WORKSPACE_DIR=~/develop/workspace
+$ GH_CLONE_DEFAULT_GITHUB_USER=sei40kr
+
+# equivalent to `git clone https://github.com/sei40kr/dotfiles ~/develop/workspace/sei40kr/dotfiles`
+$ gh-clone dotfiles
+```
+
 ## Install
 
 ### Install with [zplugin](https://github.com/zdharma/zplugin) (recommended)
