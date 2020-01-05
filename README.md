@@ -25,6 +25,7 @@ zplugin light sei40kr/zsh-gh-clone
 ```sh
 zplug sei40kr/zsh-gh-clone
 ```
+
 ## Customization
 
 | Variable                       | Default Value                 | Description                                                                |
