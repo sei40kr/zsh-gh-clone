@@ -35,6 +35,23 @@ gh-clone() {
     mkdir -p "$author_dir"
 
     git clone "$git_url" "$dest_dir"
+
+    if [[ "$GH_CLONE_MOVE_GO_PROJECT" == true && -n "$GOPATH" ]] &&
+           find "$dest_dir" -type f -name '*.go' | grep -qe '.'; then
+        echo
+        echo 'It looks like a Go project. Moving the repository under GOPATH ...'
+
+        local new_dest_dir="${GOPATH}/src/github.com/${repo}"
+        if [[ -e "$new_dest_dir" ]]; then
+            echo 'Error: The destination directory already exists!' >&2
+            return 1
+        fi
+
+        mkdir -p "$new_dest_dir"
+        mv -fT "$dest_dir" "$new_dest_dir"
+
+        rm -d "$author_dir" 2>/dev/null
+    fi
 }
 
 gh-clone "$@"

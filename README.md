@@ -27,10 +27,11 @@ zplug sei40kr/zsh-gh-clone
 ```
 ## Customization
 
-| Variable                       | Default Value                 | Description                                                          |
-| :--                            | :--                           | :--                                                                  |
-| `GH_CLONE_WORKSPACE_DIR`       | `''`                          | Workspace directory where you clone repositories                     |
-| `GH_CLONE_DEFAULT_GITHUB_USER` | `"$(git config github.user)"` | Default GitHub user. If username omitted, this will be used instead. |
+| Variable                       | Default Value                 | Description                                                                |
+| :--                            | :--                           | :--                                                                        |
+| `GH_CLONE_WORKSPACE_DIR`       | `''`                          | Workspace directory where you clone repositories                           |
+| `GH_CLONE_DEFAULT_GITHUB_USER` | `"$(git config github.user)"` | Default GitHub user. If username omitted, this will be used instead.       |
+| `GH_CLONE_MOVE_GO_PROJECT`     | `false`                       | Whether to move the repository under GOPATH when it contains `*.go` files. |
 
 ## Tips
 
