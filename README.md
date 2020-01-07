@@ -42,3 +42,8 @@ zplug sei40kr/zsh-gh-clone
 [url "git@github.com:sei40kr"]
   insteadOf "https://github.com/sei40kr"
 ```
+
+## Similar Projects
+
+- [ghq](https://github.com/motemen/ghq)
+- [rrc](https://github.com/mopemope/rrc)
