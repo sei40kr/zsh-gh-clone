@@ -4,25 +4,25 @@ Clone a GitHub repository into your workspace with one command!
 
 ## Example
 
-```
-$ GH_CLONE_WORKSPACE_DIR=~/develop/workspace
-$ GH_CLONE_DEFAULT_GITHUB_USER=sei40kr
+```zsh
+GH_CLONE_WORKSPACE_DIR=~/develop/workspace
+GH_CLONE_DEFAULT_GITHUB_USER=sei40kr
 
 # equivalent to `git clone https://github.com/sei40kr/dotfiles ~/develop/workspace/sei40kr/dotfiles`
-$ gh-clone dotfiles
+gh-clone dotfiles
 ```
 
 ## Install
 
 ### Install with [zplugin](https://github.com/zdharma/zplugin) (recommended)
 
-```sh
+```zsh
 zplugin light sei40kr/zsh-gh-clone
 ```
 
 ### Install with [zplug](https://github.com/zplug/zplug)
 
-```sh
+```zsh
 zplug sei40kr/zsh-gh-clone
 ```
 
@@ -38,7 +38,9 @@ zplug sei40kr/zsh-gh-clone
 
 ### Clone a repository of yours via SSH
 
-```
+Configure your `.gitconfig` like shown below:
+
+```gitconfig
 [url "git@github.com:sei40kr"]
   insteadOf "https://github.com/sei40kr"
 ```
@@ -47,7 +49,7 @@ zplug sei40kr/zsh-gh-clone
 
 Configure your `.gitconfig` like shown below:
 
-```
+```gitconfig
 [url "git@github-private:sei40kr"]
   insteadOf "https://github.com/sei40kr"
 [url "git@github.com:sei40kr-work"]
@@ -56,7 +58,7 @@ Configure your `.gitconfig` like shown below:
 
 Then specify a key to use in your `.ssh/config` too:
 
-```
+```ssh-config
 Host github-private
   HostName github.com
   User git
@@ -65,7 +67,7 @@ Host github-private
 
 You also need to make sure the permission for `.ssh/config` set properly:
 
-```sh
+```zsh
 chmod 600 ~/.ssh/config
 ```
 
