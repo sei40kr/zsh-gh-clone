@@ -43,6 +43,32 @@ zplug sei40kr/zsh-gh-clone
   insteadOf "https://github.com/sei40kr"
 ```
 
+### Use different keys for different GitHub users
+
+Configure your `.gitconfig` like shown below:
+
+```
+[url "git@github-private:sei40kr"]
+  insteadOf "https://github.com/sei40kr"
+[url "git@github.com:sei40kr-work"]
+  insteadOf "https://github.com/sei40kr-work"
+```
+
+Then specify a key to use in your `.ssh/config` too:
+
+```
+Host github-private
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_private
+```
+
+You also need to make sure the permission for `.ssh/config` set properly:
+
+```sh
+chmod 600 ~/.ssh/config
+```
+
 ## Similar Projects
 
 - [ghq](https://github.com/motemen/ghq)
