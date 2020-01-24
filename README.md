@@ -14,10 +14,10 @@ gh-clone dotfiles
 
 ## Install
 
-### Install with [zplugin](https://github.com/zdharma/zplugin) (recommended)
+### Install with [zinit](https://github.com/zdharma/zinit) (recommended)
 
 ```zsh
-zplugin light sei40kr/zsh-gh-clone
+zinit light sei40kr/zsh-gh-clone
 ```
 
 ### Install with [zplug](https://github.com/zplug/zplug)
