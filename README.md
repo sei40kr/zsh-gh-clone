@@ -17,6 +17,7 @@ gh-clone dotfiles
 ### Install with [zinit](https://github.com/zdharma/zinit) (recommended)
 
 ```zsh
+zinit ice trigger-load'!gh-clone'
 zinit light sei40kr/zsh-gh-clone
 ```
 
